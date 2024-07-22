@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tab</title>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      color: #333;
+    }
+
+    #tab {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      padding: 0.2rem 0;
+      align-items: center;
+      border-top: 1px solid gray
+    }
+
+    #tab a {
+      display: block;
+      text-decoration: none;
+      width: 2rem;
+      font-size: 0.44rem;
+      text-align: center;
+      color: #666;
+      transition: all 0.1s;
+    }
+
+    #tab .active {
+      font-size: 0.46rem;
+      color: #333;
+    }
+
+    #tab .upload {
+      color: white;
+      background-color: red;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      width: 1.2rem;
+      margin: 0 0.4rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="tab">
+    <a href="#" v-bind:class="{ active: pageId === 0 }" @click="pageId = 0">首页</a>
+    <a href="#" v-bind:class="{ active: pageId === 1 }" @click="pageId = 1">购物</a>
+    <a href="#" class="upload">+</a>
+    <a href="#" v-bind:class="{ active: pageId === 3 }" @click="pageId = 3">消息</a>
+    <a href="#" v-bind:class="{ active: pageId === 4 }" @click="pageId = 4">我</a>
+  </div>
+
+  <script src="flexible.js"></script>
+  <script src="vue2.js"></script>
+  <script>
+    const tab = new Vue({
+      el: '#tab',
+      data: {
+        pageId: 0,
+      }
+    })
+  </script>
+</body>
+</html>
